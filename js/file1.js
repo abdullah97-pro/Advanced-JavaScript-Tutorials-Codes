@@ -10,6 +10,8 @@
 // // // */
 // // // // var name = "Ahmad";
 
+// const { act } = require("react");
+
 // // const { createElement } = require("react");
 
 
@@ -1183,3 +1185,9 @@ link.classList.add('links');
 link.classList.add('active');
 // link.classList.remove('links');
 link.classList.toggle('links');
+
+const active = document.querySelector('.active');
+active.style.backgroundColor="red";
+active.style.padding = "5px";
+active.style.borderRadius = "5px 10px";
+active.style.textDecoration = "none";
