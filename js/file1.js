@@ -1193,6 +1193,21 @@
 // active.style.textDecoration = "none";
 
 
-window.addEventListener("scroll", () => {
-    console.log("Page Scrolling");
+// window.addEventListener("scroll", () => {
+//     console.log("Page Scrolling");
+// });
+
+
+document.querySelector('#parent').addEventListener("click", () => {
+    console.log("Parent Click");
 });
+
+document.querySelector('#child').addEventListener("click", () => {
+    console.log("Child Click");
+});
+
+document.querySelector('#child').addEventListener("click", (e) => {
+    e.stopPropagation();
+    console.log("Only child handled");
+});
+
