@@ -1198,16 +1198,40 @@
 // });
 
 
-document.querySelector('#parent').addEventListener("click", () => {
-    console.log("Parent Click");
+// document.querySelector('#parent').addEventListener("click", () => {
+//     console.log("Parent Click");
+// });
+
+// document.querySelector('#child').addEventListener("click", () => {
+//     console.log("Child Click");
+// });
+
+// document.querySelector('#child').addEventListener("click", (e) => {
+//     e.stopPropagation();
+//     console.log("Only child handled");
+// });
+
+
+const menu = document.querySelector("#menu");
+menu.addEventListener("click", (e) => {
+    if(e.target.tagName === "A") {
+        console.log(`Your Text is ${e.target.textContent}`);
+        // e.target.style.cssText = `
+        // background-color: blue;
+        // color: white;
+        // text-decoration: none;
+        // padding: 3px;
+        // `;
+    }
 });
 
-document.querySelector('#child').addEventListener("click", () => {
-    console.log("Child Click");
-});
+menu.style.cssText = `
+        background-color: blue;
+        color: white;
+        text-decoration: none;
+        padding: 3px;
+        `;
 
-document.querySelector('#child').addEventListener("click", (e) => {
-    e.stopPropagation();
-    console.log("Only child handled");
-});
+const styles = window.getComputedStyle(menu);
+console.log(styles.padding);
 
