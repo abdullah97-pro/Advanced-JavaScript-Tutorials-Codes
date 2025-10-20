@@ -1212,26 +1212,32 @@
 // });
 
 
-const menu = document.querySelector("#menu");
-menu.addEventListener("click", (e) => {
-    if(e.target.tagName === "A") {
-        console.log(`Your Text is ${e.target.textContent}`);
-        // e.target.style.cssText = `
-        // background-color: blue;
-        // color: white;
-        // text-decoration: none;
-        // padding: 3px;
-        // `;
-    }
+// const menu = document.querySelector("#menu");
+// menu.addEventListener("click", (e) => {
+//     if(e.target.tagName === "A") {
+//         console.log(`Your Text is ${e.target.textContent}`);
+//         // e.target.style.cssText = `
+//         // background-color: blue;
+//         // color: white;
+//         // text-decoration: none;
+//         // padding: 3px;
+//         // `;
+//     }
+// });
+
+// menu.style.cssText = `
+//         background-color: blue;
+//         color: white;
+//         text-decoration: none;
+//         padding: 3px;
+//         `;
+
+// const styles = window.getComputedStyle(menu);
+// console.log(styles.padding);
+
+const btnToggle = document.querySelector('#toggle');
+document.body.classList.add('light');
+
+btnToggle.addEventListener("click", () => {
+    document.body.classList.toggle('dark');
 });
-
-menu.style.cssText = `
-        background-color: blue;
-        color: white;
-        text-decoration: none;
-        padding: 3px;
-        `;
-
-const styles = window.getComputedStyle(menu);
-console.log(styles.padding);
-
