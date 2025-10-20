@@ -1247,8 +1247,15 @@
 
 
 
-const item = document.querySelector('.box2');
-console.log(item.parentNode);
-// console.log(item.parentElement);
+// const item = document.querySelector('.box2');
+// console.log(item.parentNode);
+// // console.log(item.parentElement);
+
+
+
+const item = document.querySelector('.box');
+// console.log(item.children);
+console.log(item.lastElementChild.textContent);
+
 
 
