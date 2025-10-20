@@ -1253,9 +1253,13 @@
 
 
 
-const item = document.querySelector('.box');
-// console.log(item.children);
-console.log(item.lastElementChild.textContent);
+// const item = document.querySelector('.box');
+// // console.log(item.children);
+// console.log(item.lastElementChild.textContent);
 
+
+const active = document.querySelector('.active');
+console.log(active.previousElementSibling.alt);
+console.log(active.nextElementSibling.alt);
 
 
