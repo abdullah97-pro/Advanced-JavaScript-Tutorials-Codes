@@ -1235,9 +1235,20 @@
 // const styles = window.getComputedStyle(menu);
 // console.log(styles.padding);
 
-const btnToggle = document.querySelector('#toggle');
-document.body.classList.add('light');
 
-btnToggle.addEventListener("click", () => {
-    document.body.classList.toggle('dark');
-});
+
+
+// const btnToggle = document.querySelector('#toggle');
+// document.body.classList.add('light');
+
+// btnToggle.addEventListener("click", () => {
+//     document.body.classList.toggle('dark');
+// });
+
+
+
+const item = document.querySelector('.box2');
+console.log(item.parentNode);
+// console.log(item.parentElement);
+
+
