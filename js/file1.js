@@ -1272,13 +1272,29 @@
 //   }
 // });
 
-const btn = document.querySelector('button');
 
-// console.log(btn.dataset.id);
-// console.log(btn.dataset.name);
 
-btn.addEventListener("click", () => {
-  alert(`Added ${btn.dataset.name} with id ${btn.dataset.id}`);
+
+// const btn = document.querySelector('button');
+
+// // console.log(btn.dataset.id);
+// // console.log(btn.dataset.name);
+
+// btn.addEventListener("click", () => {
+//   alert(`Added ${btn.dataset.name} with id ${btn.dataset.id}`);
+// });
+
+
+const form = document.querySelector('#signup');
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  
+  const username = document.getElementById('username').value;
+  const email = document.getElementById('email').value;
+
+  console.log(username);
+  console.log(email);
 });
 
 
