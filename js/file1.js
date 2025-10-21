@@ -1263,13 +1263,15 @@
 // console.log(active.nextElementSibling.alt);
 
 
-const list = document.querySelector("#menu");
+// const list = document.querySelector("#menu");
 
-list.addEventListener("click", (e) => {
-  if (e.target.tagName === "LI") {
-    e.target.classList.add("selected");
-    console.log("Parent:", e.target.parentElement.id);
-  }
-});
+// list.addEventListener("click", (e) => {
+//   if (e.target.tagName === "LI") {
+//     e.target.classList.add("selected");
+//     console.log("Parent:", e.target.parentElement.id);
+//   }
+// });
+
+
 
 
