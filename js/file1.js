@@ -1285,24 +1285,29 @@
 // });
 
 
-const form = document.querySelector('#signup');
+// const form = document.querySelector('#signup');
+const input = document.querySelector('#username');
 
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  // const username = document.getElementById('username').value;
-  const email = document.getElementById('email').value;
-
-  const username = form.username.value;
-
-  if(username.trim() === ""){
-    alert('Username can not be empty');
-    return;
-  }
-
-  alert("Form submitted successfully!");
-  console.log(username);
-  console.log(email);
+input.addEventListener('input', (e) => {
+  console.log(`You typed ${e.target.value}`);
 });
+
+// form.addEventListener("submit", (e) => {
+//   e.preventDefault();
+
+//   // const username = document.getElementById('username').value;
+//   const email = document.getElementById('email').value;
+
+//   const username = form.username.value;
+
+//   if(username.trim() === ""){
+//     alert('Username can not be empty');
+//     return;
+//   }
+
+//   alert("Form submitted successfully!");
+//   console.log(username);
+//   console.log(email);
+// });
 
 
