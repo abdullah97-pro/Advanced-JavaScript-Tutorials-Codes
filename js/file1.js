@@ -1274,9 +1274,11 @@
 
 const btn = document.querySelector('button');
 
-console.log(btn.dataset.id);
-console.log(btn.dataset.name);
+// console.log(btn.dataset.id);
+// console.log(btn.dataset.name);
 
-
+btn.addEventListener("click", () => {
+  alert(`Added ${btn.dataset.name} with id ${btn.dataset.id}`);
+});
 
 
