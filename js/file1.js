@@ -1311,5 +1311,14 @@
 // // });
 
 
-document.documentElement.style.setProperty('--them-style','#ff6347');
+// document.documentElement.style.setProperty('--them-style','#ff6347');
 
+const fragment = document.createDocumentFragment();
+
+for (let i = 1; i < 100; i++) {
+  const li = document.createElement('li');
+  li.textContent = `Item ${i}`;
+  fragment.appendChild(li);
+}
+
+document.querySelector('ul').appendChild(fragment);
