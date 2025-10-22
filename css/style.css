@@ -1,0 +1,11 @@
+:root{
+    --them-style: #6a05e6;
+}
+
+body {
+    background-color: var(--them-style);
+}
+
+input[type="submit"] {
+    color: var(--them-style);
+}
