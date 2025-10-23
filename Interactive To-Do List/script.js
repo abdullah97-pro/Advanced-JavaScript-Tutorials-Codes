@@ -9,9 +9,25 @@ addTask.addEventListener("click", () => {
     const li = document.createElement('li');
     li.innerHTML = `
         <span class="task-text">${taskText}</span>
-        <button class="delete-btn"><i class="fa-solid fa-trash" style="color: #ff0000;"></i></button>
+        <button class="delete-btn">X</button>
     `;
 
     taskList.appendChild(li);
     taskInput.value = "";
 });
+
+// Event Delegation for delete & toggle complete
+taskList.addEventListener("click", (e) => {
+  if (e.target.classList.contains("delete-btn")) {
+    e.target.parentElement.remove();
+  }
+
+//   if (e.target.classList.contains("task-text")) {
+//     e.target.classList.toggle("completed");
+//   }
+
+    document.querySelectorAll('ul li span.task-text').forEach(span => {
+        span.classList.toggle('completed');
+    });
+});
+
