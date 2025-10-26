@@ -12,3 +12,12 @@ addFieldBtn.addEventListener("click", () => {
     
     container.appendChild(input);
 });
+
+const sumitBtn = document.querySelector('#submitForm');
+
+sumitBtn.addEventListener("click", () => {
+    const values = [...document.querySelectorAll('.form-field')].map(
+        (field) => field.value
+    );
+    console.log("Form Data: ",values);
+});
