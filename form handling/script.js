@@ -13,11 +13,27 @@ addFieldBtn.addEventListener("click", () => {
     container.appendChild(input);
 });
 
-const sumitBtn = document.querySelector('#submitForm');
+const submitBtn = document.querySelector('#submitForm');
 
-sumitBtn.addEventListener("click", () => {
-    const values = [...document.querySelectorAll('.form-field')].map(
-        (field) => field.value
-    );
-    console.log("Form Data: ",values);
+// submitBtn.addEventListener("click", () => {
+//     const values = [...document.querySelectorAll('.form-field')].map(
+//         (field) => field.value
+//     );
+//     console.log("Form Data: ",values);
+// });
+
+submitBtn.addEventListener("click", () => {
+  const fields = document.querySelectorAll(".form-field");
+  let valid = true;
+
+  fields.forEach((field) => {
+    if (field.value.trim() === "") {
+      field.style.border = "2px solid red";
+      valid = false;
+    } else {
+      field.style.border = "2px solid green";
+    }
+  });
+
+  if (valid) alert("All fields valid!");
 });
