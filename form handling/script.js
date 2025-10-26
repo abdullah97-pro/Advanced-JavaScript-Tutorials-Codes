@@ -5,6 +5,8 @@ let count = 0;
 
 addFieldBtn.addEventListener("click", () => {
     count++;
-    console.log(count);
+    const input = document.createElement('input');
+    input.type = "text";
     
+    container.appendChild(input);
 });
