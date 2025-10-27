@@ -39,10 +39,58 @@
 // });
 
 
-// Basic Fetch Example
-document.getElementById('fetchBtn').addEventListener("click",() => {
-  fetch("https://jsonplaceholder.typicode.com/posts/1")
-  .then((response) => response.json())
-  .then((data) => console.log("Fetch Post: ",data))
-  .catch((err) => console.error("Error: ",err));
+// // Basic Fetch Example
+// document.getElementById('fetchBtn').addEventListener("click",() => {
+//   fetch("https://jsonplaceholder.typicode.com/posts/1")
+//   .then((response) => response.json())
+//   .then((data) => console.log("Fetch Post: ",data))
+//   .catch((err) => console.error("Error: ",err));
+// });
+
+// const form = document.querySelector('#signupForm');
+
+// form.addEventListener("submit", async(e) => {
+//   e.preventDefault();
+
+//   const formData = {
+//     username:form.username.value,
+//     email:form.email.value,
+//   };
+
+//   try{
+//     const res = await fetch("/api/register",{
+//       method: "POST",
+//       headers: {"Content-Type":"application/json"},
+//       body: JSON.stringify(formData),
+//     });
+
+//     const result = await res.json();
+//     console.log("Response: ",result);
+    
+//   }catch(error) {
+//     console.error("Submission Error:",error);
+//   }
+// });
+
+const form = document.querySelector("#signupForm");
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const formData = {
+    username: form.username.value,
+    email: form.email.value,
+  };
+
+  const res = await fetch("/api/register", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(formData),
+  });
+
+  const result = await res.json();
+  console.log("Response:", result);
 });
+
+
+
