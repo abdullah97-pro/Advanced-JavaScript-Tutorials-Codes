@@ -7,5 +7,11 @@
 </head>
 <body>
     
+
+    <script>
+        const customEvent = new Event("dataUpdated");
+        document.addEventListener("dataUpdated", () => console.log("Data refreshed!"));
+        document.dispatchEvent(customEvent);
+    </script>
 </body>
 </html>
