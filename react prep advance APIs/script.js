@@ -1,17 +1,26 @@
-    // Select the host element
-    const host = document.querySelector("#shadowHost");
 
-    // Attach a Shadow DOM to it
-    const shadowRoot = host.attachShadow({ mode: "open" });
+    const targetNode = document.querySelector("#dynamicList");
 
-    // Add content and styles inside the Shadow DOM
-    shadowRoot.innerHTML = `
-      <style>
-        p {
-          color: red;
-          font-weight: bold;
-          margin: 0;
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === "childList") {
+          console.log("Child nodes changed:", mutation.addedNodes);
+          mutation.addedNodes.forEach(node => {
+            if (node.nodeType === 1) {
+              console.log("New element added:", node.textContent);
+            }
+          });
         }
-      </style>
-      <p>Hello from Shadow DOM!</p>
-    `;
+      });
+    });
+
+    observer.observe(targetNode, { childList: true });
+
+    const addItemBtn = document.querySelector("#addItemBtn");
+    let count = 3;
+    addItemBtn.addEventListener("click", () => {
+      const li = document.createElement("li");
+      li.textContent = `Item ${count++}`;
+      targetNode.appendChild(li);
+    });
+

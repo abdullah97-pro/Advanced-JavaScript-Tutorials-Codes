@@ -3,38 +3,57 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>33.1 Example — Creating Shadow DOM</title>
+
+  <title>MutationObserver Example — Watch for Added Nodes</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f5f5f5;
+      background: #f2f2f2;
       padding: 30px;
     }
     h2 {
       color: #333;
     }
-    #shadowHost {
-      display: inline-block;
-      padding: 15px;
-      border: 2px dashed #888;
-      border-radius: 10px;
+    ul {
       background: #fff;
-      margin-top: 20px;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      list-style: none;
     }
-    /* Outside styles */
-    p {
-      color: blue;
+    li {
+      padding: 8px;
+      border-bottom: 1px solid #ddd;
+    }
+    li:last-child {
+      border-bottom: none;
+    }
+    button {
+      margin-top: 15px;
+      padding: 8px 14px;
+      border: none;
+      background-color: #007bff;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
     }
   </style>
+
 </head>
 <body>
-  <h2>33.1 Example — Creating Shadow DOM</h2>
 
-  <!-- The host element -->
-  <div id="shadowHost"></div>
+  <h2>34.1 Example — Watch for Added Nodes</h2>
 
-  <!-- A normal paragraph (to show that styles are isolated) -->
-  <p>This paragraph is outside the Shadow DOM.</p>
+  <ul id="dynamicList">
+    <li>Item 1</li>
+    <li>Item 2</li>
+  </ul>
+
+  <button id="addItemBtn">Add New Item</button>
+  
 
     <script src="./script.js"></script>
 
