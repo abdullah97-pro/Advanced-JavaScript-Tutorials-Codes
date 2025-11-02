@@ -24,3 +24,21 @@
       targetNode.appendChild(li);
     });
 
+
+    let selectedItem = null;
+    document.getElementById('dynamicList').addEventListener('click', (e) => {
+        if (e.target.tagName === 'LI') {
+            if(selectedItem) {
+                selectedItem.style.backgroundColor='';
+            }
+            selectedItem = e.target;
+            selectedItem.style.backgroundColor='lightblue';
+        }
+    });
+
+    document.getElementById('removeItemBtn').addEventListener('click', () => {
+        if(selectedItem) {
+            selectedItem.remove();
+            selectedItem = null;
+        }
+    });
