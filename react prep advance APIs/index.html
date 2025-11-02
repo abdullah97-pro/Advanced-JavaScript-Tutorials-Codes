@@ -1,14 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>React Preparation & Advanced APIs</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>33.1 Example — Creating Shadow DOM</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      padding: 30px;
+    }
+    h2 {
+      color: #333;
+    }
+    #shadowHost {
+      display: inline-block;
+      padding: 15px;
+      border: 2px dashed #888;
+      border-radius: 10px;
+      background: #fff;
+      margin-top: 20px;
+    }
+    /* Outside styles */
+    p {
+      color: blue;
+    }
+  </style>
 </head>
 <body>
-    
-    <div id="shadowHost"></div>
+  <h2>33.1 Example — Creating Shadow DOM</h2>
+
+  <!-- The host element -->
+  <div id="shadowHost"></div>
+
+  <!-- A normal paragraph (to show that styles are isolated) -->
+  <p>This paragraph is outside the Shadow DOM.</p>
 
     <script src="./script.js"></script>
+
 </body>
 </html>
