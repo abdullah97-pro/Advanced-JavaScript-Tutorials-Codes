@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3. Canvas API — Drawing & Animations</title>
+<style>
+  body { text-align: center; background: #fafafa; }
+
+  canvas { border: 2px solid #333; border-radius: 10px; margin-top: 30px; }
+
+</style>
+</head>
+<body>
+<h2>Canvas API — Bouncing Ball Animation</h2>
+<canvas id="myCanvas" width="400" height="300"></canvas>
+
+<script>
+  const canvas = document.getElementById("myCanvas");
+  const ctx = canvas.getContext("2d");
+  let x = 50, y = 50, dx = 3, dy = 2, radius = 20;
+
+  function drawBall() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.beginPath();
+    ctx.arc(x, y, radius, 0, Math.PI * 2);
+    ctx.fillStyle = "#ff5722";
+    ctx.fill();
+    ctx.closePath();
+
+    if (x + dx > canvas.width - radius || x + dx < radius) dx = -dx;
+    if (y + dy > canvas.height - radius || y + dy < radius) dy = -dy;
+
+    x += dx;
+    y += dy;
+    requestAnimationFrame(drawBall);
+  }
+
+  drawBall();
+</script>
+</body>
+</html>
