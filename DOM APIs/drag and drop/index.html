@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2. Drag & Drop API</title>
+<style>
+  body { font-family: Arial, sans-serif; text-align: center; padding: 30px; }
+  #dragItem {
+    width: 100px; height: 100px; background: #2196f3; color: white;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 10px; cursor: grab; margin: 20px auto;
+  }
+  #dropZone {
+    width: 200px; height: 150px; border: 3px dashed #aaa;
+    margin: 30px auto; border-radius: 10px; line-height: 150px;
+  }
+  #dropZone.hovered { border-color: #4caf50; background: #e8f5e9; }
+</style>
+</head>
+<body>
+
+<h2>Drag & Drop API — Move the Blue Box</h2>
+
+<div id="dragItem" draggable="true">Drag me</div>
+<div id="dropZone">Drop here</div>
+
+<script>
+  const dragItem = document.getElementById("dragItem");
+  const dropZone = document.getElementById("dropZone");
+
+dragItem.addEventListener("dragstart", e => {
+    e.dataTransfer.setData("text/plain", dragItem.id);
+  });
+  dropZone.addEventListener("dragover", e => {
+    e.preventDefault();
+    dropZone.classList.add("hovered");
+  });
+  dropZone.addEventListener("dragleave", () => {
+    dropZone.classList.remove("hovered");
+  });
+  dropZone.addEventListener("drop", e => {
+    e.preventDefault();
+    const id = e.dataTransfer.getData("text/plain");
+    const element = document.getElementById(id);
+    dropZone.textContent = "Dropped!";
+    dropZone.classList.remove("hovered");
+    dropZone.appendChild(element);
+  });
+</script>
+</body>
+</html>
