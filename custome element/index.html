@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Element Example — MyCard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f5;
+      padding: 40px;
+    }
+    h2 {
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h2>Custom Element Example — &lt;my-card&gt;</h2>
+
+  <!-- Using our custom element -->
+  <my-card></my-card>
+  <my-card></my-card>
+
+
+  <script>
+    class MyCard extends HTMLElement {
+      constructor() {
+        super();
+        // Attach shadow DOM
+        const shadow = this.attachShadow({ mode: "open" });
+        
+        // Create internal styles and content
+        shadow.innerHTML = `
+          <style>
+            .card {
+              display: inline-block;
+              padding: 15px 25px;
+              border-radius: 10px;
+              background: white;
+              box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+              color: #333;
+              font-size: 18px;
+              font-weight: 500;
+              transition: transform 0.2s;
+            }
+            .card:hover {
+              transform: translateY(-3px);
+              box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+            }
+          </style>
+          <div class="card">
+            <p>Hello from MyCard!</p>
+          </div>
+        `;
+      }
+    }
+
+    // Register the custom element
+    customElements.define("my-card", MyCard);
+  </script>
+</body>
+</html>
