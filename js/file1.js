@@ -1313,12 +1313,19 @@
 
 // document.documentElement.style.setProperty('--them-style','#ff6347');
 
-const fragment = document.createDocumentFragment();
+// const fragment = document.createDocumentFragment();
 
-for (let i = 1; i < 100; i++) {
-  const li = document.createElement('li');
-  li.textContent = `Item ${i}`;
-  fragment.appendChild(li);
-}
+// for (let i = 1; i < 100; i++) {
+//   const li = document.createElement('li');
+//   li.textContent = `Item ${i}`;
+//   fragment.appendChild(li);
+// }
 
-document.querySelector('ul').appendChild(fragment);
+// document.querySelector('ul').appendChild(fragment);
+
+
+let timer;
+window.addEventListener("resize", () => {
+  clearTimeout(timer);
+  timer = setTimeout(() => console.log("Resize handled!"), 200);
+});
