@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4. LocalStorage Example</title>
+<style>
+  body { font-family: Arial, sans-serif; text-align: center; padding: 30px; }
+
+  input { padding: 10px; width: 250px; border-radius: 5px; border: 1px solid #ccc; }
+
+</style>
+</head>
+<body>
+
+<h2>LocalStorage — Save Your Name</h2>
+<input type="text" id="nameInput" placeholder="Enter your name">
+<p id="greeting"></p>
+
+<script>
+  const input = document.getElementById("nameInput");
+  const greeting = document.getElementById("greeting");
+
+  // Load saved data
+  const savedName = localStorage.getItem("username");
+  if (savedName) {
+    greeting.textContent = `Welcome back, ${savedName}!`;
+    input.value = savedName;
+  }
+
+  // Save on change
+  input.addEventListener("input", () => {
+    const name = input.value;
+    localStorage.setItem("username", name);
+    greeting.textContent = `Hello, ${name}!`;
+  });
+</script>
+</body>
+</html>
