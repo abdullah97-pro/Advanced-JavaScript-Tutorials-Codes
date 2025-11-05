@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5. Fetch API Example</title>
+<style>
+  body { font-family: Arial, sans-serif; text-align: center; padding: 30px; }
+
+  button { padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
+
+  button:hover { background: #0056b3; }
+  img { border-radius: 50%; margin-top: 20px; }
+
+</style>
+</head>
+<body>
+
+<h2>Fetch API — Get Random User</h2>
+<button id="loadUser">Load User</button>
+
+<div id="userInfo"></div>
+
+<script>
+  const button = document.getElementById("loadUser");
+  const userInfo = document.getElementById("userInfo");
+
+  button.addEventListener("click", async () => {
+    userInfo.textContent = "Loading...";
+    try {
+      const res = await fetch("https://randomuser.me/api/");
+      const data = await res.json();
+      const user = data.results[0];
+      userInfo.innerHTML = `
+        <img src="${user.picture.large}" alt="User Photo">
+        <p><strong>${user.name.first} ${user.name.last}</strong></p>
+        <p>${user.email}</p>
+        <p>${user.location.country}</p>
+      `;
+    } catch (error) {
+      userInfo.textContent = "Failed to load user.";
+    }
+  });
+</script>
+</body>
+</html>
